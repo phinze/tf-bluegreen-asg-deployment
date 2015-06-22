@@ -11,6 +11,9 @@ variable "azs" {
 variable "region" {
   default = "us-west-2"
 }
+variable "key_name" {
+  default = "tftest"
+}
 variable "vpc_cidr" {
   default = "10.89.0.0/16"
 }

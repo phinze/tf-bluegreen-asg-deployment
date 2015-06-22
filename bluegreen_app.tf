@@ -28,7 +28,7 @@ resource "aws_elb" "example" {
 resource "aws_launch_configuration" "blue" {
   image_id = "${module.ami.ami_id}"
   instance_type = "${var.instance_type}"
-  key_name = "tftest"
+  key_name = "${var.key_name}"
   security_groups = ["${aws_security_group.example.id}"]
   user_data = "${file("./boot-blue.sh")}"
 
@@ -50,7 +50,7 @@ resource "aws_autoscaling_group" "blue" {
 resource "aws_launch_configuration" "green" {
   image_id = "${module.ami.ami_id}"
   instance_type = "${var.instance_type}"
-  key_name = "tftest"
+  key_name = "${var.key_name}"
   security_groups = ["${aws_security_group.example.id}"]
   user_data = "${file("./boot-green.sh")}"
 
